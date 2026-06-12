@@ -47,13 +47,13 @@ const Experience = () => {
     }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
 
-        {/* Section label */}
+      
         <div className="reveal" style={{ marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <span style={{
               fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
               color: 'var(--accent)', letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>03 / Services</span>
+            }}>Services</span>
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
           </div>
         </div>
@@ -74,7 +74,7 @@ const Experience = () => {
               background: 'var(--card)', border: '1px solid var(--border)',
               borderRadius: 16, overflow: 'hidden',
             }}>
-              {/* Card header */}
+              
               <div style={{
                 padding: '22px 24px',
                 borderBottom: '1px solid var(--border)',
@@ -93,7 +93,7 @@ const Experience = () => {
                 }}>{svc.category}</span>
               </div>
 
-              {/* Services list */}
+             
               <div style={{ padding: '8px 0' }}>
                 {svc.items.map((item, ii) => (
                   <div key={ii} style={{
