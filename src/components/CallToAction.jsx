@@ -19,18 +19,18 @@ const CallToAction = () => {
     }}>
       <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
 
-        {/* Section label */}
+        
         <div className="reveal" style={{ marginBottom: 16 }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
             <span style={{
               fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
               color: 'var(--accent)', letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>05 / Contact</span>
+            }}>Contact</span>
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
           </div>
         </div>
 
-        {/* Big CTA card */}
+        
         <div className="reveal delay-1" style={{
           background: 'var(--card)',
           border: '1px solid var(--border)',
@@ -38,7 +38,7 @@ const CallToAction = () => {
           position: 'relative', overflow: 'hidden',
           display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center',
         }}>
-          {/* Glow */}
+       
           <div style={{
             position: 'absolute', top: '-80px', right: '-80px',
             width: 400, height: 400,
@@ -63,7 +63,6 @@ const CallToAction = () => {
             </p>
           </div>
 
-          {/* Contact options */}
           <div style={{
             display: 'flex', flexDirection: 'column', gap: 12,
             position: 'relative', zIndex: 1, minWidth: 200,
@@ -111,7 +110,7 @@ const CallToAction = () => {
           </div>
         </div>
 
-        {/* Availability line */}
+        
         <div className="reveal delay-2" style={{ marginTop: 24, display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center' }}>
           <span style={{ width: 8, height: 8, background: 'var(--accent)', borderRadius: '50%', animation: 'pulseDot 2s ease-in-out infinite' }} />
           <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: 'var(--muted)' }}>
