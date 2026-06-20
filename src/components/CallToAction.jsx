@@ -5,84 +5,59 @@ const CallToAction = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) ref.current?.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      if (e.isIntersecting) {
+        ref.current?.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }
     }, { threshold: 0.2 });
+    
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="contact" ref={ref} style={{
-      padding: '80px 0 100px',
-      background: 'var(--surface)',
-      borderTop: '1px solid var(--border)',
-    }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
+    <section 
+      id="contact" 
+      ref={ref} 
+      className="pt-20 pb-[100px] bg-[var(--surface)] border-t border-[var(--border)]"
+    >
+      <div className="max-w-[1100px] mx-auto px-7">
 
-        
-        <div className="reveal" style={{ marginBottom: 16 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
-              color: 'var(--accent)', letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>Contact</span>
-            <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
+        {/* Section label */}
+        <div className="reveal mb-4">
+          <div className="flex items-center gap-3.5">
+            <span className="font-mono text-[11px] text-[var(--accent)] tracking-[0.14em] uppercase">
+              Contact
+            </span>
+            <div className="h-px flex-1 bg-[var(--border)]" />
           </div>
         </div>
 
-        
-        <div className="reveal delay-1" style={{
-          background: 'var(--card)',
-          border: '1px solid var(--border)',
-          borderRadius: 20, padding: '56px 48px',
-          position: 'relative', overflow: 'hidden',
-          display: 'grid', gridTemplateColumns: '1fr auto', gap: 48, alignItems: 'center',
-        }}>
-       
-          <div style={{
-            position: 'absolute', top: '-80px', right: '-80px',
-            width: 400, height: 400,
-            background: 'radial-gradient(circle, rgba(0,232,122,0.06) 0%, transparent 65%)',
-            pointerEvents: 'none',
-          }} />
+        {/* Big CTA card */}
+        <div className="reveal delay-1 relative overflow-hidden grid grid-cols-1 md:grid-cols-[1fr_auto] gap-12 items-center bg-[var(--card)] border border-[var(--border)] rounded-[20px] p-8 md:p-[56px_48px]">
+          
+          {/* Glow */}
+          <div className="absolute -top-20 -right-20 w-[400px] h-[400px] bg-[radial-gradient(circle,rgba(0,232,122,0.06)_0%,transparent_65%)] pointer-events-none" />
 
-          <div style={{ position: 'relative', zIndex: 1 }}>
-            <h2 style={{
-              fontFamily: "'Syne', sans-serif", fontWeight: 800,
-              fontSize: 'clamp(28px, 4vw, 48px)', letterSpacing: '-0.03em',
-              color: '#fff', lineHeight: 1.1, marginBottom: 16,
-            }}>
+          <div className="relative z-10">
+            <h2 className="font-['Syne'] font-extrabold text-[clamp(28px,4vw,48px)] tracking-[-0.03em] text-white leading-[1.1] mb-4">
               Have a project in mind?<br />
-              <span style={{ color: 'var(--accent)' }}>Let's talk.</span>
+              <span className="text-[var(--accent)]">Let's talk.</span>
             </h2>
-            <p style={{
-              fontFamily: "'DM Sans', sans-serif", fontSize: 16,
-              color: 'var(--muted)', lineHeight: 1.7, maxWidth: 440,
-            }}>
+            <p className="font-['DM_Sans'] text-base text-[var(--muted)] leading-[1.7] max-w-[440px]">
               Whether it's a landing page, a dashboard build, or admin support — send me a message and I'll reply within a few hours.
             </p>
           </div>
 
-          <div style={{
-            display: 'flex', flexDirection: 'column', gap: 12,
-            position: 'relative', zIndex: 1, minWidth: 200,
-          }}>
+          {/* Contact options */}
+          <div className="flex flex-col gap-3 relative z-10 min-w-0 md:min-w-[200px]">
             <a
               href="mailto:samueldzambwa@gmail.com"
-              style={{
-                display: 'flex', alignItems: 'center', gap: 12,
-                padding: '14px 20px', borderRadius: 11,
-                background: 'var(--accent)', color: '#000',
-                textDecoration: 'none',
-                transition: 'opacity 0.2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.opacity = '0.85'}
-              onMouseLeave={e => e.currentTarget.style.opacity = '1'}
+              className="flex items-center gap-3 p-[14px_20px] rounded-[11px] bg-[var(--accent)] text-black no-underline transition-opacity duration-200 hover:opacity-85"
             >
-              <span style={{ fontSize: 18 }}>✉</span>
+              <span className="text-18px text-lg">✉</span>
               <div>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, lineHeight: 1 }}>Send an Email</div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, opacity: 0.7, marginTop: 2 }}>samueldzambwa@gmail.com</div>
+                <div className="font-['Syne'] font-bold text-[13px] leading-none">Send an Email</div>
+                <div className="font-mono text-[10px] opacity-75 mt-0.5">samueldzambwa@gmail.com</div>
               </div>
             </a>
 
@@ -90,40 +65,28 @@ const CallToAction = () => {
               href="https://wa.me/2349129606487"
               target="_blank"
               rel="noreferrer"
-              style={{
-                display: 'flex', alignItems: 'center', gap: 12,
-                padding: '14px 20px', borderRadius: 11,
-                background: 'var(--surface)',
-                border: '1px solid var(--border)',
-                color: 'var(--text)', textDecoration: 'none',
-                transition: 'border-color 0.2s',
-              }}
-              onMouseEnter={e => e.currentTarget.style.borderColor = 'rgba(0,232,122,0.3)'}
-              onMouseLeave={e => e.currentTarget.style.borderColor = 'var(--border)'}
+              className="flex items-center gap-3 p-[14px_20px] rounded-[11px] bg-[var(--surface)] border border-[var(--border)] text-[var(--text)] no-underline transition-colors duration-200 hover:border-[rgba(0,232,122,0.3)]"
             >
-              <span style={{ fontSize: 18 }}>💬</span>
+              <span className="text-18px text-lg">💬</span>
               <div>
-                <div style={{ fontFamily: "'Syne', sans-serif", fontWeight: 700, fontSize: 13, lineHeight: 1 }}>WhatsApp</div>
-                <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 10, color: 'var(--muted)', marginTop: 2 }}>+234 912 960 6487</div>
+                <div className="font-['Syne'] font-bold text-[13px] leading-none">WhatsApp</div>
+                <div className="font-mono text-[10px] text-[var(--muted)] mt-0.5">+234 912 960 6487</div>
               </div>
             </a>
           </div>
         </div>
 
-        
-        <div className="reveal delay-2" style={{ marginTop: 24, display: 'flex', alignItems: 'center', gap: 10, justifyContent: 'center' }}>
-          <span style={{ width: 8, height: 8, background: 'var(--accent)', borderRadius: '50%', animation: 'pulseDot 2s ease-in-out infinite' }} />
-          <span style={{ fontFamily: "'DM Sans', sans-serif", fontSize: 14, color: 'var(--muted)' }}>
+        {/* Availability line */}
+        <div className="reveal delay-2 mt-6 flex items-center gap-2.5 justify-center">
+          <span className="w-2 h-2 bg-[var(--accent)] rounded-full animate-[pulseDot_2s_ease-in-out_infinite]" />
+          <span className="font-['DM_Sans'] text-sm text-[var(--muted)]">
             Currently available for new freelance projects
           </span>
         </div>
       </div>
 
+      {/* Kept solely for the custom dot animation scaling keys */}
       <style>{`
-        @media (max-width: 768px) {
-          #contact > div > div:nth-child(2) { grid-template-columns: 1fr !important; }
-          #contact > div > div:nth-child(2) > div:last-child { min-width: auto !important; }
-        }
         @keyframes pulseDot {
           0%,100% { opacity:1; transform:scale(1); }
           50% { opacity:0.4; transform:scale(0.8); }

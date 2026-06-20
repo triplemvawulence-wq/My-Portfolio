@@ -2,7 +2,7 @@ import Homepage from './pages/Homepage'
 
 const App = () => {
   return (
-    <div style={{ background: 'var(--bg)', minHeight: '100vh' }}>
+    <div className='bg-[#0A0F0D] min-h-screen'>
       <Homepage />
     </div>
   )

@@ -32,89 +32,81 @@ const Experience = () => {
 
   useEffect(() => {
     const observer = new IntersectionObserver(([e]) => {
-      if (e.isIntersecting) ref.current?.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      if (e.isIntersecting) {
+        ref.current?.querySelectorAll('.reveal').forEach(el => el.classList.add('visible'));
+      }
     }, { threshold: 0.1 });
+    
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
   }, []);
 
   return (
-    <section id="services" ref={ref} style={{
-      padding: '110px 0 80px',
-      background: 'var(--surface)',
-      borderTop: '1px solid var(--border)',
-      borderBottom: '1px solid var(--border)',
-    }}>
-      <div style={{ maxWidth: 1100, margin: '0 auto', padding: '0 28px' }}>
+    <section 
+      id="services" 
+      ref={ref} 
+      className="pt-[110px] pb-20 bg-[var(--surface)] border-t border-b border-[var(--border)]"
+    >
+      <div className="max-w-[1100px] mx-auto px-7">
 
-      
-        <div className="reveal" style={{ marginBottom: 16 }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: 14 }}>
-            <span style={{
-              fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
-              color: 'var(--accent)', letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>Services</span>
-            <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
+        {/* Section label */}
+        <div className="reveal mb-4">
+          <div className="flex items-center gap-[14px]">
+            <span className="font-mono text-[11px] text-[var(--accent)] tracking-[0.14em] uppercase">
+               Services
+            </span>
+            <div className="h-px flex-1 bg-[var(--border)]" />
           </div>
         </div>
 
-        <div className="reveal delay-1" style={{ marginBottom: 56 }}>
-          <h2 style={{
-            fontFamily: "'Syne', sans-serif", fontWeight: 800,
-            fontSize: 'clamp(28px, 4vw, 44px)', letterSpacing: '-0.03em',
-            color: '#fff', lineHeight: 1.1,
-          }}>
-            What I Can Do<br /><span style={{ color: 'var(--accent)' }}>For You</span>
+        {/* Heading Container */}
+        <div className="reveal delay-1 mb-14">
+          <h2 className="font-['Syne'] font-extrabold text-[clamp(28px,4vw,44px)] tracking-[-0.03em] text-white leading-[1.1]">
+            What I Can Do<br />
+            <span className="text-[var(--accent)]">For You</span>
           </h2>
         </div>
 
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+        {/* Services Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {services.map((svc, si) => (
-            <div key={si} className={`reveal delay-${si + 1}`} style={{
-              background: 'var(--card)', border: '1px solid var(--border)',
-              borderRadius: 16, overflow: 'hidden',
-            }}>
-              
-              <div style={{
-                padding: '22px 24px',
-                borderBottom: '1px solid var(--border)',
-                display: 'flex', alignItems: 'center', gap: 12,
-              }}>
-                <span style={{
-                  width: 40, height: 40, borderRadius: 10,
-                  background: svc.colorDim,
-                  border: `1px solid ${svc.color}30`,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  fontSize: 18,
-                }}>{svc.icon}</span>
-                <span style={{
-                  fontFamily: "'Syne', sans-serif", fontWeight: 700,
-                  fontSize: 17, color: '#fff',
-                }}>{svc.category}</span>
+            <div 
+              key={si} 
+              className={`reveal delay-${si + 1} bg-[var(--card)] border border-[var(--border)] rounded-xl overflow-hidden`}
+            >
+              {/* Card header */}
+              <div className="p-[22px_24px] border-b border-[var(--border)] flex items-center gap-3">
+                <span 
+                  className="w-10 h-10 rounded-[10px] flex items-center justify-center text-lg border"
+                  style={{ backgroundColor: svc.colorDim, borderColor: `${svc.color}30` }}
+                >
+                  {svc.icon}
+                </span>
+                <span className="font-['Syne'] font-bold text-[17px] text-white">
+                  {svc.category}
+                </span>
               </div>
 
-             
-              <div style={{ padding: '8px 0' }}>
+              {/* Services list */}
+              <div className="py-2">
                 {svc.items.map((item, ii) => (
-                  <div key={ii} style={{
-                    padding: '16px 24px',
-                    borderBottom: ii < svc.items.length - 1 ? '1px solid var(--border2)' : 'none',
-                    display: 'flex', gap: 16, alignItems: 'flex-start',
-                  }}>
-                    <span style={{
-                      width: 6, height: 6, borderRadius: '50%',
-                      background: svc.color,
-                      flexShrink: 0, marginTop: 6,
-                    }} />
+                  <div 
+                    key={ii} 
+                    className={`p-[16px_24px] flex gap-4 items-start ${
+                      ii < svc.items.length - 1 ? 'border-b border-[var(--border2)]' : ''
+                    }`}
+                  >
+                    <span 
+                      className="w-1.5 h-1.5 rounded-full shrink-0 mt-1.5" 
+                      style={{ backgroundColor: svc.color }}
+                    />
                     <div>
-                      <div style={{
-                        fontFamily: "'DM Sans', sans-serif", fontWeight: 600,
-                        fontSize: 14, color: 'var(--text)', marginBottom: 3,
-                      }}>{item.title}</div>
-                      <div style={{
-                        fontFamily: "'DM Sans', sans-serif", fontSize: 13,
-                        color: 'var(--muted)', lineHeight: 1.6,
-                      }}>{item.desc}</div>
+                      <div className="font-['DM_Sans'] font-semibold text-sm text-[var(--text)] mb-0.5">
+                        {item.title}
+                      </div>
+                      <div className="font-['DM_Sans'] text-[13px] text-[var(--muted)] leading-[1.6]">
+                        {item.desc}
+                      </div>
                     </div>
                   </div>
                 ))}
@@ -123,12 +115,6 @@ const Experience = () => {
           ))}
         </div>
       </div>
-
-      <style>{`
-        @media (max-width: 768px) {
-          #services > div > div:last-child { grid-template-columns: 1fr !important; }
-        }
-      `}</style>
     </section>
   );
 };
