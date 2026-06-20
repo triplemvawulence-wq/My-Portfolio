@@ -30,7 +30,7 @@ const WWWMe = () => {
             <span style={{
               fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
               color: 'var(--accent)', letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>04 / Why Me</span>
+            }}>Why Me</span>
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
           </div>
         </div>

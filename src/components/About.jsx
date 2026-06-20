@@ -31,14 +31,14 @@ const About = () => {
             <span style={{
               fontFamily: "'JetBrains Mono', monospace", fontSize: 11,
               color: 'var(--accent)', letterSpacing: '0.14em', textTransform: 'uppercase',
-            }}>02 / About</span>
+            }}>About</span>
             <div style={{ flex: 1, height: 1, background: 'var(--border)' }} />
           </div>
         </div>
 
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'start' }}>
 
-          {/* Left */}
+          
           <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             <h2 className="reveal" style={{
               fontFamily: "'Syne', sans-serif", fontWeight: 800,
@@ -71,10 +71,10 @@ const About = () => {
             </div>
           </div>
 
-          {/* Right */}
+        
           <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
 
-            {/* Stats grid */}
+           
             <div className="reveal delay-1" style={{
               display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 8,
             }}>
@@ -98,7 +98,7 @@ const About = () => {
               ))}
             </div>
 
-            {/* Commitment list */}
+            
             {[
               { icon: '→', text: 'Clean, readable code — not just code that "works"' },
               { icon: '→', text: 'Mobile-first layouts that hold on every device' },

@@ -11,7 +11,7 @@ const Footer = () => {
 
         <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 20 }}>
 
-          {/* Brand */}
+        
           <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
             <span style={{
               width: 28, height: 28, borderRadius: 7,
@@ -25,7 +25,7 @@ const Footer = () => {
             </div>
           </div>
 
-          {/* Nav */}
+ 
           <div style={{ display: 'flex', gap: 20 }}>
             {['#about', '#services', '#contact'].map((href, i) => (
               <a key={i} href={href} style={{
@@ -39,7 +39,7 @@ const Footer = () => {
             ))}
           </div>
 
-          {/* Copy */}
+          
           <div style={{ fontFamily: "'JetBrains Mono', monospace", fontSize: 11, color: 'var(--muted)' }}>
             © {year} Samuel Zambwa
           </div>
